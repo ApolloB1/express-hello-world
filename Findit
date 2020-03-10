@@ -1,7 +1,17 @@
-post {
+pipeline {
+    agent any
+    stages {
+        stage('No-op') {
+            steps {
+                sh 'ssdfsd'
+            }
+        }
+    }
+    post {
     failure {
         mail to: 'tskynetse@gmail.com',
              subject: "Failed Pipeline: test",
              body: "Something is wrong with pipline"
     }
+  }
 }
