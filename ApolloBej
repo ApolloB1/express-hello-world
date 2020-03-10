@@ -1,5 +1,8 @@
 pipeline {
   agent any
+    
+  tools {nodejs "node"}
+    
   stages {
         
     stage('Cloning Git') {
@@ -13,11 +16,5 @@ pipeline {
         sh 'npm install'
       }
     }  
-
-    stage('apollo') {
-      steps {
-        echo 'this is apollo branch'
-      }
-    }
   }
 }
