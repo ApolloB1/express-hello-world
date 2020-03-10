@@ -1,28 +1,7 @@
-pipeline {
-    agent any
-    stages {
-        stage('No-op') {
-            steps {
-                sh 'ls'
-            }
-        }
-    }
-    post {
-        always {
-            echo 'One way or another, I have finished'
-           
-        }
-        success {
-            echo 'I succeeeded!'
-        }
-        unstable {
-            echo 'I am unstable :/'
-        }
-        failure {
-            echo 'I failed :('
-        }
-        changed {
-            echo 'Things were different before...'
-        }
+post {
+    failure {
+        mail to: 'tskynetse@gmail.com',
+             subject: "Failed Pipeline: test",
+             body: "Something is wrong with pipline"
     }
 }
