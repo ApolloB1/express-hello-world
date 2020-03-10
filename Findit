@@ -17,6 +17,11 @@ pipeline {
             }
         }
         stage('Change env variable') {
+            script {
+              DISABLE_AUTH = 'false'
+           }
+        }
+        stage('Print new End Var') {
             steps {
                 echo "Database engine is ${DB_ENGINE}"
             }
