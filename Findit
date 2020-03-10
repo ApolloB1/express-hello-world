@@ -1,17 +1,25 @@
 pipeline {
     agent any
     stages {
-        stage('No-op') {
+        /* "Build" and "Test" stages omitted */
+
+        stage('Deploy - Staging') {
             steps {
-                sh 'ssdfsd'
+                sh './deploy staging'
+                sh './run-smoke-tests'
+            }
+        }
+
+        stage('Sanity check') {
+            steps {
+                input "Does the staging environment look ok?"
+            }
+        }
+
+        stage('Deploy - Production') {
+            steps {
+                sh './deploy production'
             }
         }
     }
-    post {
-    failure {
-        mail to: 'tskynetse@gmail.com',
-             subject: "Failed Pipeline: test",
-             body: "Something is wrong with pipline"
-    }
-  }
 }
