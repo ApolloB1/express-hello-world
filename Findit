@@ -11,7 +11,7 @@ pipeline {
 
         stage('Deploy - Production') {
             steps {
-                echo 'end'
+                echo 'exit 1'
             }
         }
     }
