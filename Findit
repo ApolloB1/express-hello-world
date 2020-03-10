@@ -5,20 +5,13 @@ pipeline {
 
         stage('Deploy - Staging') {
             steps {
-                sh './deploy staging'
-                sh './run-smoke-tests'
-            }
-        }
-
-        stage('Sanity check') {
-            steps {
-                input message: "Does the staging environment look ok?"
+                echo '${JENKINS_URL}'
             }
         }
 
         stage('Deploy - Production') {
             steps {
-                sh './deploy production'
+                echo 'end'
             }
         }
     }
