@@ -10,8 +10,7 @@ pipeline {
         
     stage('Install ahmed') {
       steps {
-        sh 'nvm use v8.12.0'
-        
+        sh "echo hello"
       }
     }  
 
