@@ -10,13 +10,14 @@ pipeline {
         
     stage('Install ahmed') {
       steps {
+        sh 'nvm use v8.12.0'
         sh 'npm install'
       }
     }  
 
     stage('apollo') {
       steps {
-        echo 'this is apollo branch!'
+        echo 'this is apollo branch! apollo'
       }
     }
   }
